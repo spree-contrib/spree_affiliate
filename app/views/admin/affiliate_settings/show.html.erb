@@ -1,0 +1,18 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%= t("affiliate_settings") %></h1>
+
+<table>
+  <tr>
+    <th scope="row"><%= t("sender_credit_amount") %>:</th> 
+    <td><%= number_to_currency Spree::Config[:sender_credit_amount] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t("recipient_credit_amount") %>:</th> 
+    <td><%= number_to_currency Spree::Config[:recipient_credit_amount] %></td>
+  </tr>
+</table>
+
+<p><%= link_to_with_icon 'edit', t("edit"), edit_admin_affiliate_settings_path %></p>
+
+
