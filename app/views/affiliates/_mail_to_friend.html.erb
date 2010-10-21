@@ -1,0 +1,13 @@
+<%= @mail.recipient_name %>,
+
+I think you would like this affiliate program. 
+
+<% unless @mail.message.blank? -%>
+<%= @mail.message %>
+<% end -%>
+
+<%= @mail.sender_name %>
+
+Click the link below to to get store credit after first order:
+
+<%= link_to root_url(:ref_id => @object), root_url(:ref_id => @object) %>
