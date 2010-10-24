@@ -1,6 +1,15 @@
 <p>
   <strong><%= I18n.t('affiliate_link') %>:</strong> 
-  <%= link_to root_url(:ref_id => current_user.ref_id), root_url(:ref_id => current_user.ref_id) %><br />
-  <%= link_to "Send affiliate link to friend", email_to_friend_url('affiliate', Affiliate.new(current_user))
+  <%= link_to root_url(:ref_id => @user.ref_id), root_url(:ref_id => @user.ref_id) %><br />
+  <%= link_to "Send affiliate link to friend", email_to_friend_url('affiliate', current_user.find_or_create_affiliate)
  %>
 </p>
+<% @affiliates = @user.affiliates.where("affiliate_email IS NOT NULL") %>
+<% if @affiliates.count > 0 %>
+  <h3>Already sent to:</h3>
+  <ul>
+  <% @affiliates.each do |aff| %>
+    <li><%= aff.affiliate_email %> <%= aff.user_id ? '(registered)' : '' %></li>
+  <% end %>
+  </ul>
+<% end %>
