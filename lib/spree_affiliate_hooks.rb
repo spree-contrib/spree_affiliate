@@ -4,4 +4,6 @@ class SpreeAffiliateHooks < Spree::ThemeSupport::HookListener
   end
   
   insert_before :account_my_orders, :partial => 'users/affiliate'
+  
+  replace :send_mail_fields, :partial => 'email_sender/fields'
 end
