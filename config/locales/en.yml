@@ -1,7 +1,10 @@
 en:
   affiliate_link: "Affiliate link"
+  affiliate_links_already_sent_to: "Already sent to:"
   affiliate_program: "Affiliate Program"
   affiliate_settings: "Affiliate settings"
   manage_affiliate_settings: "Manage affiliate settings"
   recipient_credit_amount: "Recipient credit amount"
+  registered: "registered"
+  send_affiliate_link: "Send affiliate link to friend"
   sender_credit_amount: "Sender credit amount"
