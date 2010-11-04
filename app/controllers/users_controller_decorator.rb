@@ -6,7 +6,7 @@ UsersController.class_eval do
   private
 
   def check_affiliate
-    return if cookies[:ref_id].blank?
+    return if cookies[:ref_id].blank? or @user.invalid?
     sender = User.find_by_ref_id(cookies[:ref_id])
 
     if sender
@@ -30,6 +30,6 @@ UsersController.class_eval do
     end
 
     #destroy the cookie, as the affiliate record has been created.
-    cookies.permanent[:ref_id] = nil
+    cookies[:ref_id] = nil
   end
 end
