@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
   s.name        = 'spree_affiliate'
-  s.version     = '0.30.1'
+  s.version     = '1.0.0'
   s.authors     = ['Rails Dog']
   s.email       = 'gems@railsdog.com'
   s.homepage    = 'http://github.com/spree/spree_affiliate'
