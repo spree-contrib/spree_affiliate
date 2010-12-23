@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = '0.30.1'
   s.authors     = ['Rails Dog']
   s.email       = 'gems@railsdog.com'
-  s.homepage    = 'http://github.com/spree/spree-store-credits'
+  s.homepage    = 'http://github.com/spree/spree_affiliate'
   s.summary     = 'Affiliate support for Spree'
   s.description = 'Affiliate support for Spree'
   s.required_ruby_version = '>= 1.8.7'
