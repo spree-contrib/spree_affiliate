@@ -1,21 +1,9 @@
+# encoding: utf-8
 require 'rubygems'
 require 'rake'
 require 'rake/testtask'
-require 'rake/packagetask'
-require 'rake/gempackagetask'
-
-spec = eval(File.read('spree_affiliate.gemspec'))
-
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-end
-
-desc "Release to gemcutter"
-task :release => :package do
-  require 'rake/gemcutter'
-  Rake::Gemcutter::Tasks.new(spec).define
-  Rake::Task['gem:push'].invoke
-end
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
 desc "Default Task"
 task :default => [ :spec ]
@@ -37,11 +25,11 @@ task :test_app do
     def tweak_gemfile
       append_file 'Gemfile' do
 <<-gems
-        gem 'spree_core', :path => '#{File.join(SPREE_PATH, 'core')}'
-        gem 'spree_auth', :path => '#{File.join(SPREE_PATH, 'auth')}'
-        gem 'spree_store_credits', :path => '#{File.join(SPREE_PATH, '..', 'store_credits')}'
-        gem 'spree_email_to_friend', :path => '#{File.join(SPREE_PATH, '..', 'spree-email-to-friend')}'
-        gem 'spree_affiliate', :path => '../..'
+gem 'spree_core', :path => '#{File.join(SPREE_PATH, 'core')}'
+gem 'spree_auth', :path => '#{File.join(SPREE_PATH, 'auth')}'
+gem 'spree_store_credits', :path => '#{File.join(SPREE_PATH, '..', 'spree-store-credits')}'
+gem 'spree_email_to_friend', :path => '#{File.join(SPREE_PATH, '..', 'spree-email-to-friend')}'
+gem 'spree_affiliate', :path => '#{File.dirname(__FILE__)}'
 gems
       end
     end
