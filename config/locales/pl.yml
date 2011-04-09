@@ -1,0 +1,12 @@
+pl:
+  affiliate_link: Link afiliacyjny
+  affiliate_links_already_sent_to: Wysłane już do:
+  affiliate_program: Program afiliacyjny
+  affiliate_settings: Ustawienia programu afiliacyjnego
+  manage_affiliate_settings: Zarządzaj programem afiliacyjnym
+  recipient_credit_on_purchase_amount: "Kwota dla odbiorcy (przy pierwszym zamówieniu)"
+  recipient_credit_on_register_amount: "Kwota dla odbiorcy (przy rejestracji)"
+  registered: zarejestrowany
+  send_affiliate_link: Wyślij link do znajomego
+  sender_credit_on_purchase_amount: "Kwota dla zapraszającego (on recipient's first order)"
+  sender_credit_on_register_amount: "Kwota dla zapraszającego (on recipient register)"
