@@ -1,0 +1,17 @@
+.account-my-affiliates{ data: { hook: 'affiliates' } }
+  %h3= t(:affiliates_signed_up)
+
+  %strong
+    = t('affiliate_link')
+  = link_to_referral_url(@user)
+
+  - if @affiliates.present?
+    %table
+      %thead#my-affiliates
+        %tr
+          %th= t(:affiliate_email)
+          %th= t(:affiliation_date)
+      %tbody= render @affiliates
+  - else
+    %p= t(:no_affiliates_yet)
+
