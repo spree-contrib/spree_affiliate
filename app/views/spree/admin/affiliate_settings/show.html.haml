@@ -1,0 +1,27 @@
+= render 'spree/admin/shared/configuration_menu'
+
+%h1= t('affiliate_settings')
+
+%table
+  %tr
+    %th{ scope: 'row'  }
+      = Spree.t('sender_credit_on_register_amount')
+      \:
+    %td= number_to_currency SpreeAffiliate::Config[:sender_credit_on_register_amount]
+  %tr
+    %th{ scope: 'row' }
+      = Spree.t('recipient_credit_on_register_amount')
+      \:
+    %td= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_register_amount]
+  %tr
+    %th{ scope: 'row' }
+      = Spree.t('sender_credit_on_purchase_amount')
+      \:
+    %td= number_to_currency SpreeAffiliate::Config[:sender_credit_on_purchase_amount]
+  %tr
+    %th{ scope: 'row' }
+      = Spree.t('recipient_credit_on_purchase_amount')
+      \:
+    %td= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_purchase_amount]
+
+%p= link_to_with_icon 'edit', Spree.t('actions.edit'), edit_admin_affiliate_settings_path

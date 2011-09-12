@@ -1,12 +1,14 @@
 en:
-  affiliate_link: "Affiliate link"
-  affiliate_links_already_sent_to: "Already sent to:"
-  affiliate_program: "Affiliate Program"
-  affiliate_settings: "Affiliate settings"
-  manage_affiliate_settings: "Manage affiliate settings"
-  recipient_credit_on_purchase_amount: "Recipient credit amount (on first order)"
-  recipient_credit_on_register_amount: "Recipient credit amount (on register)"
-  registered: "registered"
-  send_affiliate_link: "Send affiliate link to friend"
-  sender_credit_on_purchase_amount: "Sender credit amount (on recipient's first order)"
-  sender_credit_on_register_amount: "Sender credit amount (on recipient register)"
+  affiliate_link: 'Invite link:'
+  affiliate_program: Affiliate Program
+  affiliate_settings: Affiliate settings
+  affiliates_signed_up: 'Friends signed up:'
+  edit: Edit
+  manage_affiliate_settings: Manage affiliate settings
+  no_affiliates_yet: None of your friends have accepted your invitation
+  recipient_credit_on_purchase_amount: Recipient credit amount (on first order)
+  recipient_credit_on_register_amount: Recipient credit amount (on register)
+  registered: registered
+  send_affiliate_link: Send affiliate link to friend
+  sender_credit_on_purchase_amount: Sender credit amount (on recipient's first order)
+  sender_credit_on_register_amount: Sender credit amount (on recipient register)
