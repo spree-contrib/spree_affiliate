@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'spree_affiliate_hooks'
 
 module SpreeAffiliate
   class Engine < Rails::Engine
