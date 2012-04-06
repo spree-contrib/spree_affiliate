@@ -1,4 +1,4 @@
-EmailSenderController.class_eval do
+Spree::EmailSenderController.class_eval do
   private
 
   def after_delivering_affiliate_mail
