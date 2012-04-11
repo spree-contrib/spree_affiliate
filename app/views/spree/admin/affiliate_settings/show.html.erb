@@ -1,23 +1,23 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/configuration_menu' %>
 
 <h1><%= t("affiliate_settings") %></h1>
 
 <table>
   <tr>
     <th scope="row"><%= t("sender_credit_on_register_amount") %>:</th>
-    <td><%= number_to_currency Spree::Config[:sender_credit_on_register_amount] %></td>
+    <td><%= number_to_currency SpreeAffiliate::Config[:sender_credit_on_register_amount] %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("recipient_credit_on_register_amount") %>:</th>
-    <td><%= number_to_currency Spree::Config[:recipient_credit_on_register_amount] %></td>
+    <td><%= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_register_amount] %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("sender_credit_on_purchase_amount") %>:</th>
-    <td><%= number_to_currency Spree::Config[:sender_credit_on_purchase_amount] %></td>
+    <td><%= number_to_currency SpreeAffiliate::Config[:sender_credit_on_purchase_amount] %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("recipient_credit_on_purchase_amount") %>:</th>
-    <td><%= number_to_currency Spree::Config[:recipient_credit_on_purchase_amount] %></td>
+    <td><%= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_purchase_amount] %></td>
   </tr>
 </table>
 
