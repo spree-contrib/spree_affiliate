@@ -10,7 +10,6 @@ Installation
 1. Add to Gemfile:
 
         gem "spree_store_credits"
-        gem "spree_email_to_friend"
         gem "spree_affiliate"
 
 1. Run `bundle install`

@@ -7,6 +7,3 @@ Deface::Override.new(:virtual_path => "spree/users/show",
 		 :name => "converted_account_my_orders_69371225",
 		 :insert_before => "[data-hook='account_my_orders'], #account_my_orders[data-hook]",
 		 :partial => "spree/users/affiliate")
-
-# I can't find this hook anywhere, so leaving it here, in its deprecated state, so it will still 'work' (I'm not attempting to 'deface' it)
-# replace :send_mail_fields, :partial => 'email_sender/fields'

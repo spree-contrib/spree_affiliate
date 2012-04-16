@@ -26,7 +26,6 @@ task :test_app do
 gem 'spree_core', :path => '#{File.join(SPREE_PATH, 'core')}'
 gem 'spree_auth', :path => '#{File.join(SPREE_PATH, 'auth')}'
 gem 'spree_store_credits', :path => '#{File.join(SPREE_PATH, '..', 'spree_store_credits')}'
-gem 'spree_email_to_friend', :path => '#{File.join(SPREE_PATH, '..', 'spree-email-to-friend')}'
 gem 'spree_affiliate', :path => '#{File.dirname(__FILE__)}'
 gems
       end
