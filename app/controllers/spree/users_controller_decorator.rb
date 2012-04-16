@@ -7,7 +7,7 @@ Spree::UserRegistrationsController.class_eval do
 
   def check_affiliate
     return if cookies[:ref_id].blank? || @user.invalid?
-    sender = User.find_by_ref_id(cookies[:ref_id])
+    sender = Spree::User.find_by_ref_id(cookies[:ref_id])
 
     if sender
       sender.affiliates.create(:user_id => @user.id)
