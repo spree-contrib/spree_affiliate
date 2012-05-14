@@ -7,4 +7,7 @@
 tmp
 nbproject
 *.swp
-spec/test_app
+spec/dummy
+.bundle
+.rvmrc
+Gemfile.lock
