@@ -20,3 +20,8 @@ Installation
 
 1. Run `rake db:migrate`
 
+
+Testing
+=======
+
+bundle exec rake test_app
