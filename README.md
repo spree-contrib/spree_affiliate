@@ -16,7 +16,7 @@ Installation
 1. Run install rake task for all extensions:
 
         rake spree_store_credits:install
-        rake spree_affiliate:install
+        rails g spree_affiliate:install
 
 1. Run `rake db:migrate`
 
