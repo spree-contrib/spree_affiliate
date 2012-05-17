@@ -55,4 +55,37 @@ feature 'affiliate store credit feature' do
     page.should have_content("Your order has been processed successfully")
   end
 
+  scenario "sender credit on order_paid", :js => true do
+    reset_affiliate_preferences do |config|
+      config.sender_credit_on_order_paid_amount = 10
+    end
+
+    visit "/?ref_id=#{sender.ref_id}"
+    visit "/signup"
+
+    fill_in "Email", :with => "paul@gmail.com"
+    fill_in "Password", :with => "mypassword"
+    fill_in "Password Confirmation", :with => "mypassword"
+    click_button "Create"
+
+    add_product_to_cart_and_fill_address
+
+    page.should_not have_content("store credits")
+
+    click_button "Save and Continue"
+    page.should have_content("Your order has been processed successfully")
+    click_link "Logout"
+
+    sign_in_as! sender
+    visit spree.admin_order_payments_path(order = Spree::User.find_by_email("paul@gmail.com").orders.first)
+
+    click_button "Capture"
+
+    add_product_to_cart_and_fill_address
+    page.should have_content("You have $10.00 of store credits")
+    fill_in "order_store_credit_amount", :with => "10"
+    click_button "Save and Continue"
+    page.should have_content("Your order has been processed successfully")
+  end
+
 end
