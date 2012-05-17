@@ -5,20 +5,24 @@
 <%= form_tag(admin_affiliate_settings_path, :method => :put) do %>
 
   <p>
-	<label><%= t("sender_credit_on_register_amount") %></label>
-	<%= text_field_tag('preferences[sender_credit_on_register_amount]', SpreeAffiliate::Config[:sender_credit_on_register_amount]) %>
+  <label><%= t("sender_credit_on_register_amount") %></label>
+  <%= text_field_tag('preferences[sender_credit_on_register_amount]', SpreeAffiliate::Config[:sender_credit_on_register_amount]) %>
   </p>
   <p>
-	<label><%= t('recipient_credit_on_register_amount') %></label>
-	<%= text_field_tag('preferences[recipient_credit_on_register_amount]', SpreeAffiliate::Config[:recipient_credit_on_register_amount])%>
+  <label><%= t('recipient_credit_on_register_amount') %></label>
+  <%= text_field_tag('preferences[recipient_credit_on_register_amount]', SpreeAffiliate::Config[:recipient_credit_on_register_amount])%>
   </p>
   <p>
-	<label><%= t("sender_credit_on_purchase_amount") %></label>
-	<%= text_field_tag('preferences[sender_credit_on_purchase_amount]', SpreeAffiliate::Config[:sender_credit_on_purchase_amount]) %>
+  <label><%= t("sender_credit_on_purchase_amount") %></label>
+  <%= text_field_tag('preferences[sender_credit_on_purchase_amount]', SpreeAffiliate::Config[:sender_credit_on_purchase_amount]) %>
   </p>
   <p>
-	<label><%= t('recipient_credit_on_purchase_amount') %></label>
-	<%= text_field_tag('preferences[recipient_credit_on_purchase_amount]', SpreeAffiliate::Config[:recipient_credit_on_purchase_amount])%>
+  <label><%= t('recipient_credit_on_purchase_amount') %></label>
+  <%= text_field_tag('preferences[recipient_credit_on_purchase_amount]', SpreeAffiliate::Config[:recipient_credit_on_purchase_amount])%>
+  </p>
+  <p>
+    <label><%= t("sender_credit_on_order_paid_amount") %>:</label>
+    <%= text_field_tag('preferences[sender_credit_on_order_paid_amount]', SpreeAffiliate::Config[:sender_credit_on_order_paid_amount])%>
   </p>
 
   <p class="form-buttons">
