@@ -13,6 +13,6 @@ Spree::User.class_eval do
   end
 
   def self.find_by_ref_id(ref_id)
-    Spree::User.find(ref_id.to_s.reverse)
+    Spree::User.find_by_id(ref_id.to_s.reverse)
   end
 end
