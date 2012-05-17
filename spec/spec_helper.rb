@@ -9,7 +9,9 @@ require 'rspec/rails'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 require 'spree/core/testing_support/factories'
+require 'spree/core/testing_support/fixtures'
 require 'ffaker'
+
 
 RSpec.configure do |config|
   # == Mock Framework

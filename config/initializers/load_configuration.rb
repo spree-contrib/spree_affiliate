@@ -1,3 +1,3 @@
-module SpreeAffiliate
-  Config = SpreeAffiliate::Configuration.new
-end
+# module SpreeAffiliate
+#   Config = SpreeAffiliate::Configuration.new
+# end

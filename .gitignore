@@ -11,3 +11,4 @@ spec/dummy
 .bundle
 .rvmrc
 Gemfile.lock
+.sass-cache

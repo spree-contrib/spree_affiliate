@@ -11,6 +11,16 @@ module SpreeAffiliate
       end
     end
 
+    initializer "spree_affiliate.environment", :before => :load_config_initializers, :after => "spree.environment" do |app|
+      Dir.glob(File.join(File.dirname(__FILE__), "../configuration.rb")) do |c|
+        Rails.application.config.cache_classes ? require(c) : load(c)
+      end
+      app.config.spree.add_class('affiliate_preferences')
+      app.config.spree.affiliate_preferences = SpreeAffiliate::Configuration.new
+
+      SpreeAffiliate::Config = app.config.spree.affiliate_preferences
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end
