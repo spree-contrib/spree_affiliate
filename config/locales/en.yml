@@ -8,5 +8,6 @@ en:
   recipient_credit_on_register_amount: "Recipient credit amount (on register)"
   registered: "registered"
   send_affiliate_link: "Send affiliate link to friend"
+  sender_credit_on_order_paid_amount: "Sender credit amount (on recipient's first order paid)"
   sender_credit_on_purchase_amount: "Sender credit amount (on recipient's first order)"
   sender_credit_on_register_amount: "Sender credit amount (on recipient register)"

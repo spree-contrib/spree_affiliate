@@ -5,7 +5,7 @@ Spree::User.class_eval do
   has_one :affiliate_partner, :class_name => "Spree::Affiliate", :foreign_key => "user_id"
 
   def referred_by
-    affiliate_partner.partner
+    affiliate_partner.try(:partner)
   end
 
   def ref_id
