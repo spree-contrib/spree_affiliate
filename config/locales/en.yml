@@ -11,3 +11,9 @@ en:
   sender_credit_on_order_paid_amount: "Sender credit amount (on recipient's first order paid)"
   sender_credit_on_purchase_amount: "Sender credit amount (on recipient's first order)"
   sender_credit_on_register_amount: "Sender credit amount (on recipient register)"
+  affiliate:
+    welcome: "Welcome on %{store}"
+    description:
+      with_credit: "%{sender} is giving you %{amount} off!<br/>
+                    %{sender} is shopping on %{store}. Sign up and get %{amount} off your first order"
+      without_credit: "%{sender} is shopping on %{store}. Sign up and he will get %{amount} off hist next order"
