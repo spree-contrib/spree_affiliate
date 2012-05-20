@@ -1,0 +1,8 @@
+<h2>Refer your friends</h2>
+<% if current_user %>
+  <h5>Share your link with your friend</h5>
+  <%= text_field_tag :af_url, af_url(current_user.ref_id) %>
+<% else %>
+  <h3><%= link_to t(:sign_up), signup_path %> <%= t(:or) %> <%= link_to t(:login), login_path %></h3>
+  <h5>to start sharing your link</h5>
+<% end %>

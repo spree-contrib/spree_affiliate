@@ -1,0 +1,11 @@
+<h3><%= t("affiliate.welcome", :store => Spree::Config[:site_name]) -%></h3>
+
+<% if @user %>
+  <% if c = SpreeAffiliate::Config[:recipient_credit_on_register_amount] and c > 0 %>
+    <%= t("affiliate.description.with_credit", :sender => @user.email, :amount => number_to_currency(SpreeAffiliate::Config[:recipient_credit_on_register_amount])).html_safe %>
+  <% else %>
+    <%= t("affiliate.description.without_credit", :sender => @user.email, :amount => number_to_currency(SpreeAffiliate::Config[:sender_credit_on_register_amount])) %>
+  <% end %>
+<% else %>
+
+<% end %>

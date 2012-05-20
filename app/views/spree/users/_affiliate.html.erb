@@ -1,14 +1,13 @@
-<p>
-  <strong><%= t('affiliate_link') %>:</strong> 
-  <%= link_to root_url(:ref_id => @user.ref_id), root_url(:ref_id => @user.ref_id) %><br />
- %>
-</p>
-<% @affiliates = @user.affiliates %>
-<% if @affiliates.any? %>
-  <h3><%= t('affiliates_signed_up') %></h3>
-  <ul>
-  <% @affiliates.each do |aff| %>
-    <li><%= aff.user.email %> (<% t(:registered) %>)</li>
+<div data-hook="account_affiliates">
+  <h3><%= t('affiliate_link') %></h3>
+  <p><%= link_to t('send_affiliate_link'), new_affiliate_path %></p>
+  <% @affiliates = @user.affiliates %>
+  <% if @affiliates.any? %>
+    <h3><%= t('affiliates_signed_up') %></h3>
+    <ul>
+    <% @affiliates.each do |aff| %>
+      <li><%= aff.user.email %> (<% t(:registered) %>)</li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
-<% end %>
+</div>
