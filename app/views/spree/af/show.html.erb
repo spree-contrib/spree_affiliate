@@ -4,7 +4,7 @@
   <% if c = SpreeAffiliate::Config[:recipient_credit_on_register_amount] and c > 0 %>
     <%= t("affiliate.description.with_credit", :store => Spree::Config[:site_name], :sender => @user.email, :amount => number_to_currency(SpreeAffiliate::Config[:recipient_credit_on_register_amount])).html_safe %>
   <% else %>
-    <%= t("affiliate.description.without_credit", :store => Spree::Config[:site_name] :sender => @user.email, :amount => number_to_currency(SpreeAffiliate::Config[:sender_credit_on_register_amount])) %>
+    <%= t("affiliate.description.without_credit", :store => Spree::Config[:site_name], :sender => @user.email, :amount => number_to_currency(SpreeAffiliate::Config[:sender_credit_on_register_amount])) %>
   <% end %>
 <% else %>
 
