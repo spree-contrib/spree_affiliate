@@ -6,7 +6,7 @@ module AffiliateCredits
     if sender_credit_amount = SpreeAffiliate::Config["sender_credit_on_#{event}_amount".to_sym] and sender_credit_amount.to_f > 0
       credit = Spree::StoreCredit.create(:amount => sender_credit_amount,
                          :remaining_amount => sender_credit_amount,
-                         :reason => "Affiliate: #{event}", :user => sender)
+                         :reason => "Affiliate: #{event}", :user => sender.user)
 
       log_event recipient.affiliate_partner, sender, credit, event
     end
