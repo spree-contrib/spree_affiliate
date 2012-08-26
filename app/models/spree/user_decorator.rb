@@ -8,6 +8,10 @@ Spree::User.class_eval do
     affiliate_partner.try(:partner)
   end
 
+  def referred_by?(user)
+    referred_by and referred_by == user
+  end
+
   def ref_id
     self.id.to_s.reverse
   end
