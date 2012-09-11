@@ -28,7 +28,7 @@ module AffiliateCredits
   end
 
   def check_affiliate
-    return if cookies[:ref_id].blank? || @user.invalid?
+    return if cookies[:ref_id].blank? || @user.nil? || @user.invalid?
     sender = Spree::User.find_by_ref_id(cookies[:ref_id])
 
     if sender
