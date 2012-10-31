@@ -3,6 +3,8 @@ class Spree::Affiliate < ActiveRecord::Base
   belongs_to :user, :class_name => 'Spree::User'
   has_many :events, :class_name => "Spree::AffiliateEvent"
 
+  validates_presence_of :user, :partner
+
   attr_accessible :user_id
 
   def name
