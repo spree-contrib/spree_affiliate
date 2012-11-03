@@ -1,6 +1,6 @@
 class Spree::Affiliate < ActiveRecord::Base
-  belongs_to :partner, :class_name => "Spree::User", :foreign_key => :partner_id
-  belongs_to :user, :class_name => 'Spree::User'
+  belongs_to :partner, :class_name => Spree.user_class.to_s, :foreign_key => :partner_id
+  belongs_to :user, :class_name => Spree.user_class.to_s
   has_many :events, :class_name => "Spree::AffiliateEvent"
 
   validates_presence_of :user, :partner
