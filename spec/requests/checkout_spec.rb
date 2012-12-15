@@ -45,7 +45,6 @@ feature 'affiliate store credit feature' do
     fill_in "Password", :with => "mypassword"
     fill_in "Password Confirmation", :with => "mypassword"
     click_button "Create"
-
     add_product_to_cart_and_fill_address
 
     page.should have_content("You have $30.00 of store credits")
@@ -79,7 +78,7 @@ feature 'affiliate store credit feature' do
     sign_in_as! sender
     visit spree.admin_order_payments_path(order = Spree::User.find_by_email("paul@gmail.com").orders.first)
 
-    click_button "Capture"
+    click_icon :capture
 
     add_product_to_cart_and_fill_address
     page.should have_content("You have $10.00 of store credits")
