@@ -1,5 +1,5 @@
 module Spree
-  class AfController < BaseController
+  class AfController < StoreController
     skip_before_filter  :require_no_authentication
 
     def show

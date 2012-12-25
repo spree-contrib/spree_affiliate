@@ -1,4 +1,4 @@
-class Spree::AffiliatesController < Spree::BaseController
+class Spree::AffiliatesController < Spree::StoreController
   def show
     flash[:notice] = request.flash[:notice]
     redirect_to account_url
