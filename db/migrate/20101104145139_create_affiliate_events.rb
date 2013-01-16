@@ -1,6 +1,6 @@
 class CreateAffiliateEvents < ActiveRecord::Migration
   def self.up
-    create_table :affiliate_events do |t|
+    create_table :spree_affiliate_events do |t|
       t.string :name
       t.integer :reward_id
       t.string :reward_type
@@ -11,6 +11,6 @@ class CreateAffiliateEvents < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :affiliate_events
+    drop_table :spree_affiliate_events
   end
 end

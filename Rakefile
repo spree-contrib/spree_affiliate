@@ -1,54 +1,29 @@
-# encoding: utf-8
-require 'rubygems'
 require 'rake'
 require 'rake/testtask'
-
-desc "Default Task"
-task :default => [ :spec ]
-
+require 'rake/packagetask'
+require 'rubygems/package_task'
 require 'rspec/core/rake_task'
+require 'spree/core/testing_support/common_rake'
+
 RSpec::Core::RakeTask.new
 
-require 'cucumber/rake/task'
-Cucumber::Rake::Task.new do |t|
-  t.cucumber_opts = %w{--format pretty}
+task :default => [:spec]
+
+spec = eval(File.read('spree_affiliate.gemspec'))
+
+Gem::PackageTask.new(spec) do |p|
+  p.gem_spec = spec
 end
 
-desc "Regenerates a rails 3 app for testing"
+desc "Release to gemcutter"
+task :release => :package do
+  require 'rake/gemcutter'
+  Rake::Gemcutter::Tasks.new(spec).define
+  Rake::Task['gem:push'].invoke
+end
+
+desc "Generates a dummy app for testing"
 task :test_app do
-  SPREE_PATH = ENV['SPREE_PATH']
-  raise "SPREE_PATH should be specified" unless SPREE_PATH
-  require File.join(SPREE_PATH, 'lib/generators/spree/test_app_generator')
-  class AuthTestAppGenerator < Spree::Generators::TestAppGenerator
-    def tweak_gemfile
-      append_file 'Gemfile' do
-<<-gems
-gem 'spree_core', :path => '#{File.join(SPREE_PATH, 'core')}'
-gem 'spree_auth', :path => '#{File.join(SPREE_PATH, 'auth')}'
-gem 'spree_store_credits', :path => '#{File.join(SPREE_PATH, '..', 'spree_store_credits')}'
-gem 'spree_email_to_friend', :path => '#{File.join(SPREE_PATH, '..', 'spree-email-to-friend')}'
-gem 'spree_affiliate', :path => '#{File.dirname(__FILE__)}'
-gems
-      end
-    end
-
-    def install_gems
-      system("cd spec/test_app && rake spree_core:install")
-      system("cd spec/test_app && rake spree_auth:install")
-      generate 'spree_store_credits:install -f'
-      generate 'spree_affiliate:install -f'
-    end
-
-    def migrate_db
-      run_migrations
-    end
-  end
-  AuthTestAppGenerator.start
-end
-
-namespace :test_app do
-  desc 'Rebuild test and cucumber databases'
-  task :rebuild_dbs do
-    system("cd spec/test_app && rake db:drop db:migrate RAILS_ENV=test && rake db:drop db:migrate RAILS_ENV=cucumber")
-  end
+  ENV['LIB_NAME'] = 'spree_affiliate'
+  Rake::Task['common:test_app'].invoke
 end

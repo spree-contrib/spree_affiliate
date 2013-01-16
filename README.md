@@ -9,15 +9,24 @@ Installation
 
 1. Add to Gemfile:
 
-        gem "spree_store_credits"
-        gem "spree_email_to_friend"
-        gem "spree_affiliate"
+        # Spree 1-2-stable
+        gem 'spree_store_credits', :git => "git://github.com/sbounmy/spree_store_credits.git", :branch => "1-2-stable"
+        gem "spree_affiliate", :git => "git@github.com:sbounmy/spree_affiliate.git", :branch => "1-2-stable"
+
+        # Spree master (1.3)
+        gem 'spree_store_credits', :git => "git://github.com/sbounmy/spree_store_credits.git", :branch => "master"
+        gem "spree_affiliate", :git => "git@github.com:sbounmy/spree_affiliate.git", :branch => "master"
 
 1. Run `bundle install`
 1. Run install rake task for all extensions:
 
-        rake spree_store_credits:install
-        rake spree_affiliate:install
+        rake spree_store_credits:install:migrations
+        rails g spree_affiliate:install
 
 1. Run `rake db:migrate`
 
+
+Testing
+=======
+
+bundle exec rake test_app

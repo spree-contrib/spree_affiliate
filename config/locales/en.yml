@@ -1,6 +1,6 @@
 en:
-  affiliate_link: "Affiliate link"
-  affiliate_links_already_sent_to: "Already sent to:"
+  affiliate_link: "Invite link"
+  affiliates_signed_up: "Friends signed up:"
   affiliate_program: "Affiliate Program"
   affiliate_settings: "Affiliate settings"
   manage_affiliate_settings: "Manage affiliate settings"
@@ -8,5 +8,12 @@ en:
   recipient_credit_on_register_amount: "Recipient credit amount (on register)"
   registered: "registered"
   send_affiliate_link: "Send affiliate link to friend"
+  sender_credit_on_order_paid_amount: "Sender credit amount (on recipient's first order paid)"
   sender_credit_on_purchase_amount: "Sender credit amount (on recipient's first order)"
   sender_credit_on_register_amount: "Sender credit amount (on recipient register)"
+  affiliate:
+    welcome: "Welcome on %{store}"
+    description:
+      with_credit: "%{sender} is giving you %{amount} off!<br/>
+                    %{sender} is shopping on %{store}. Sign up and get %{amount} off your first order"
+      without_credit: "%{sender} is shopping on %{store}. Sign up and he will get %{amount} off hist next order"
