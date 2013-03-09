@@ -1,6 +1,6 @@
 <p>
   <strong><%= t('affiliate_link') %>:</strong> 
-  <%= link_to root_url(:ref_id => @user.ref_id), root_url(:ref_id => @user.ref_id) %><br />
+  <%= link_to referral_link(@user) %><br />
  %>
 </p>
 <% @affiliates = @user.affiliates %>
