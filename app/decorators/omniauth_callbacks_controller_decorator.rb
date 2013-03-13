@@ -1,12 +1,7 @@
-class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include Spree::Core::ControllerHelpers::Common
-  include Spree::Core::ControllerHelpers::Order
-  include Spree::Core::ControllerHelpers::Auth
-
+Spree::OmniauthCallbacksController.class_eval do
   include AffiliateCredits
-  
 
-  def self.provides_callback_for(*providers)
+   def self.provides_callback_for(*providers)
     providers.each do |provider|
       class_eval %Q{
         def #{provider}
@@ -29,6 +24,7 @@ class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             user = Spree::User.find_by_email(auth_hash['info']['email']) || Spree::User.new
             user.apply_omniauth(auth_hash)
             if user.save
+            binding.pry
               @user = user
               check_affiliate
               flash[:notice] = "Signed in successfully."
@@ -50,20 +46,4 @@ class Spree::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  SpreeSocial::OAUTH_PROVIDERS.each do |provider|
-    provides_callback_for provider[1].to_sym
-  end
-
-  def failure
-    set_flash_message :alert, :failure, :kind => failed_strategy.name.to_s.humanize, :reason => failure_message
-    redirect_to spree.login_path
-  end
-
-  def passthru
-    render :file => "#{Rails.root}/public/404", :formats => [:html], :status => 404, :layout => false
-  end
-
-  def auth_hash
-    request.env["omniauth.auth"]
-  end
 end
