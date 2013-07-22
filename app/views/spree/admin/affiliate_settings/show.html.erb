@@ -4,23 +4,23 @@
 
 <table>
   <tr>
-    <th scope="row"><%= t("sender_credit_on_register_amount") %>:</th>
+    <th scope="row"><%= Spree.t("sender_credit_on_register_amount") %>:</th>
     <td><%= number_to_currency SpreeAffiliate::Config[:sender_credit_on_register_amount] %></td>
   </tr>
   <tr>
-    <th scope="row"><%= t("recipient_credit_on_register_amount") %>:</th>
+    <th scope="row"><%= Spree.t("recipient_credit_on_register_amount") %>:</th>
     <td><%= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_register_amount] %></td>
   </tr>
   <tr>
-    <th scope="row"><%= t("sender_credit_on_purchase_amount") %>:</th>
+    <th scope="row"><%= Spree.t("sender_credit_on_purchase_amount") %>:</th>
     <td><%= number_to_currency SpreeAffiliate::Config[:sender_credit_on_purchase_amount] %></td>
   </tr>
   <tr>
-    <th scope="row"><%= t("recipient_credit_on_purchase_amount") %>:</th>
+    <th scope="row"><%= Spree.t("recipient_credit_on_purchase_amount") %>:</th>
     <td><%= number_to_currency SpreeAffiliate::Config[:recipient_credit_on_purchase_amount] %></td>
   </tr>
 </table>
 
-<p><%= link_to_with_icon 'edit', t("edit"), edit_admin_affiliate_settings_path %></p>
+<p><%= link_to_with_icon 'edit', Spree.t("actions.edit"), edit_admin_affiliate_settings_path %></p>
 
 
