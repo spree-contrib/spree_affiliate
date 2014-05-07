@@ -1,8 +1,5 @@
-Spree::UserRegistrationsController.class_eval do
-  include AffiliateCredits
-
+Spree::UsersController.class_eval do
   before_action :find_affiliates, only: :show
-  after_action :check_affiliate, only: :create
 
   private
 
