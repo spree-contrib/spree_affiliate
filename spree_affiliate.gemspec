@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_affiliate'
-  s.version     = '2.0.3'
+  s.version     = '2.2.1'
 
   s.authors     = ['Rails Dog']
   s.email       = 'gems@railsdog.com'
