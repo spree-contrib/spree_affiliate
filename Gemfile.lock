@@ -11,12 +11,22 @@ GIT
       multi_json
       spree_core (~> 2.2.0)
 
+GIT
+  remote: git://github.com/spree/spree_store_credits.git
+  revision: d7629b066c7acfb5ab36d5598e4201f3e1d85201
+  branch: 2-2-stable
+  specs:
+    spree_store_credits (1.1.1)
+      spree_api (~> 2.2.0.beta)
+      spree_backend (~> 2.2.0.beta)
+      spree_core (~> 2.2.0.beta)
+      spree_frontend (~> 2.2.0.beta)
+
 PATH
   remote: .
   specs:
     spree_affiliate (2.2.1)
       spree_core (~> 2.2.1)
-      spree_store_credits
 
 GEM
   remote: https://rubygems.org/
@@ -68,6 +78,8 @@ GEM
     bcrypt (3.1.7)
     builder (3.1.4)
     cancan (1.6.10)
+    canonical-rails (0.0.7)
+      rails (>= 3.1, < 5.0)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -124,6 +136,11 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
+    jquery-rails (3.1.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.1.2)
+      railties (>= 3.1.0)
     json (1.8.1)
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
@@ -152,6 +169,8 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.4)
+    rabl (0.9.3)
+      activesupport (>= 2.3.14)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -191,6 +210,9 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+    select2-rails (3.4.9)
+      sass-rails
+      thor (~> 0.14)
     selenium-webdriver (2.41.0)
       childprocess (>= 0.5.0)
       multi_json (~> 1.0)
@@ -201,6 +223,16 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    spree_api (2.2.1)
+      rabl (= 0.9.3)
+      spree_core (= 2.2.1)
+      versioncake (~> 1.2.0)
+    spree_backend (2.2.1)
+      jquery-rails (~> 3.1.0)
+      jquery-ui-rails (~> 4.1.0)
+      select2-rails (~> 3.4.7)
+      spree_api (= 2.2.1)
+      spree_core (= 2.2.1)
     spree_core (2.2.1)
       activemerchant (~> 1.42.3)
       acts_as_list (= 0.3.0)
@@ -221,8 +253,12 @@ GEM
       state_machine (= 1.2.0)
       stringex (~> 1.5.1)
       truncate_html (= 0.9.2)
-    spree_store_credits (1.0.2)
-      spree_core (>= 0.30.1)
+    spree_frontend (2.2.1)
+      canonical-rails (~> 0.0.4)
+      jquery-rails (~> 3.1.0)
+      spree_api (= 2.2.1)
+      spree_core (= 2.2.1)
+      stringex (~> 1.5.1)
     sprockets (2.12.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -244,6 +280,11 @@ GEM
     truncate_html (0.9.2)
     tzinfo (0.3.39)
     uuidtools (2.1.4)
+    versioncake (1.2.0)
+      actionpack (>= 3.2)
+      activesupport (>= 3.2)
+      railties (>= 3.2)
+      tzinfo
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -266,4 +307,5 @@ DEPENDENCIES
   simplecov
   spree_affiliate!
   spree_auth_devise!
+  spree_store_credits!
   sqlite3

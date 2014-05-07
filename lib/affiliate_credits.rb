@@ -8,7 +8,7 @@ module AffiliateCredits
         credit = Spree::StoreCredit.create!({:amount => sender_credit_amount,
                                              :remaining_amount => sender_credit_amount,
                                              :reason => "Affiliate: #{event}",
-                                             :user => sender}, :without_protection => true)
+                                             :user => sender})
         log_event recipient.affiliate_partner, sender, credit, event
 
         ActiveSupport::Notifications.instrument('spree.affiliate.create_credits.sender', {credit: credit, recipient: recipient , event: event, sender: sender }.merge(extra))
@@ -20,7 +20,7 @@ module AffiliateCredits
         credit = Spree::StoreCredit.create!({:amount => recipient_credit_amount,
                                              :remaining_amount => recipient_credit_amount,
                                              :reason => "Affiliate: #{event}",
-                                             :user => recipient }, :without_protection => true)
+                                             :user => recipient })
         log_event recipient.affiliate_partner, recipient, credit, event
         ActiveSupport::Notifications.instrument('spree.affiliate.create_credits.sender', {credit: credit, recipient: recipient , event: event, sender: sender}.merge(extra))
         # fire_event('spree.affiliate.create_credits.recipient', credit: credit, recipient: recipient, event: event )
@@ -29,7 +29,7 @@ module AffiliateCredits
     end
 
     def log_event(affiliate, user, credit, event)
-      affiliate.events.create({:reward => credit, :name => event, :user => user}, :without_protection => true)
+      affiliate.events.create({:reward => credit, :name => event, :user => user})
     end
 
     def check_affiliate
