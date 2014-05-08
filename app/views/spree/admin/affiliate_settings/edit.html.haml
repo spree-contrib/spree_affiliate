@@ -1,0 +1,25 @@
+= render 'spree/admin/shared/configuration_menu'
+
+%h1= t('affiliate_settings')
+
+= form_tag admin_affiliate_settings_path, method: :put do
+  %p
+    %label= Spree.t('sender_credit_on_register_amount')
+    = text_field_tag('preferences[sender_credit_on_register_amount]',
+      SpreeAffiliate::Config[:sender_credit_on_register_amount])
+  %p
+    %label= Spree.t('recipient_credit_on_register_amount')
+    = text_field_tag('preferences[recipient_credit_on_register_amount]',
+      SpreeAffiliate::Config[:recipient_credit_on_register_amount])
+  %p
+    %label= Spree.t('sender_credit_on_purchase_amount')
+    = text_field_tag('preferences[sender_credit_on_purchase_amount]',
+      SpreeAffiliate::Config[:sender_credit_on_purchase_amount])
+  %p
+    %label= Spree.t('recipient_credit_on_purchase_amount')
+    = text_field_tag('preferences[recipient_credit_on_purchase_amount]',
+      SpreeAffiliate::Config[:recipient_credit_on_purchase_amount])
+
+  %p.form-buttons
+    = button Spree.t('actions.update')
+    = link_to Spree.t('actions.cancel'), admin_affiliate_settings_url
