@@ -12,7 +12,7 @@ Spree::User.class_eval do
     foreign_key: 'user_id'
 
   def referred_by
-    affiliate_partner.partner
+    affiliate_partner.try :partner
   end
 
   def ref_id
