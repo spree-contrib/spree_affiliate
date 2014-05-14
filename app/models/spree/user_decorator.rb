@@ -5,7 +5,8 @@ Spree::User.class_eval do
     foreign_key: 'partner_id'
   has_many :referred_users,
     class_name: 'Spree::User',
-    through: :affiliates
+    through: :affiliates,
+    source: :user
   has_one :affiliate_partner,
     class_name:'Spree::Affiliate',
     foreign_key: 'user_id'
