@@ -35,7 +35,7 @@ module AffiliateCredits
     def check_affiliate
       @user.reload if @user.present? and not @user.new_record?
       return if cookies[:ref_token].blank? || @user.nil? || @user.invalid?
-      email = Base64.decode cookies[:ref_token]
+      email = Base64.decode64 cookies[:ref_token]
       sender = Spree.user_class.find_by(email: email)
 
       if sender
