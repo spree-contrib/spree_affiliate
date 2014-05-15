@@ -34,8 +34,9 @@ module AffiliateCredits
 
     def check_affiliate
       @user.reload if @user.present? and not @user.new_record?
-      return if cookies[:ref_id].blank? || @user.nil? || @user.invalid?
-      sender = Spree.user_class.find_by_ref_id(cookies[:ref_id])
+      return if cookies[:ref_token].blank? || @user.nil? || @user.invalid?
+      email = Base64.decode cookies[:ref_token]
+      sender = Spree.user_class.find_by(email: email)
 
       if sender
         sender.affiliates.create(:user_id => @user.id)
@@ -44,6 +45,6 @@ module AffiliateCredits
       end
 
       #destroy the cookie, as the affiliate record has been created.
-      cookies[:ref_id] = nil
+      cookies[:ref_token] = nil
     end
 end

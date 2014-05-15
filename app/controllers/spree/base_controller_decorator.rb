@@ -4,6 +4,6 @@ Spree::BaseController.class_eval do
   private
   
   def remember_affiliate
-    cookies.permanent[:ref_id] = params[:ref_id] if params[:ref_id]
+    cookies.permament[:ref_token] = params[:ref_token] if params[:ref_token]
   end
 end

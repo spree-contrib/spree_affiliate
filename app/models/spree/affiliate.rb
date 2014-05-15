@@ -14,4 +14,8 @@ class Spree::Affiliate < ActiveRecord::Base
   def ref_id
     partner.try(:ref_id) || ''
   end
+
+  def state
+    user_id.nil? ? 'pending' : 'accepted'
+  end
 end

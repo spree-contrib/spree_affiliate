@@ -19,6 +19,10 @@ Spree::User.class_eval do
     self.id.to_s.reverse
   end
 
+  def ref_token
+    Base64.encode64 email
+  end
+
   def self.find_by_ref_id(ref_id)
     Spree::User.find(ref_id.to_s.reverse)
   end
